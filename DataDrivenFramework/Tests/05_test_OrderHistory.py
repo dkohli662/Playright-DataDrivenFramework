@@ -1,18 +1,18 @@
-from DataDrivenFramework.pages.Base import BasePage
-from DataDrivenFramework.pages.OrderHistory import OrderHistory
+from DataDrivenFramework.pages.Base import TestBasePage
+from DataDrivenFramework.pages.OrderHistory import TestOrderHistory
 
 
 def test_orderHistory(logged_in_context):
     page = logged_in_context.new_page()
     page.goto("https://rahulshettyacademy.com/client/#/dashboard/dash")
 
-    base_obj=BasePage(page)
+    base_obj=TestBasePage(page)
     # click on orders
     base_obj.go_to_order()
     page.wait_for_selector("thead th")  # or a more specific selector like ".table-responsive"
 
     # getting table headers-columns
-    obj_history=OrderHistory(page)
+    obj_history=TestOrderHistory(page)
     text=obj_history.orderTable()
     print("columns are :", text)
 # getting first row of history table

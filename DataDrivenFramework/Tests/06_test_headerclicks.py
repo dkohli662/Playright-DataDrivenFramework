@@ -1,4 +1,4 @@
-from DataDrivenFramework.pages.Base import BasePage
+from DataDrivenFramework.pages.Base import TestBasePage
 
 
 def test_headerClicks(logged_in_context): # using logged_in_context fixture for login
@@ -7,7 +7,7 @@ def test_headerClicks(logged_in_context): # using logged_in_context fixture for 
     print("Current URL:", page.url)
 
 #clicking on Orders
-    base_obj=BasePage(page)
+    base_obj=TestBasePage(page)
     base_obj.go_to_order()
     assert "https://rahulshettyacademy.com/client/#/dashboard/myorders" in page.url
     print("reached to orders tab:", page.url)

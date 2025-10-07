@@ -1,7 +1,7 @@
 from playwright.sync_api import Page, expect
 
 
-class Checkout:
+class TestCheckout:
     def __init__(self, page:Page):
         self.page=page
         self.country_input = page.locator("input[placeholder='Select Country']")

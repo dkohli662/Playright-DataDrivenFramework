@@ -1,7 +1,7 @@
 from playwright.sync_api import Page
 
 
-class Cart:
+class TestCart:
     def __init__(self, page:Page):
         self.page=page
         self.continue_shopping=page.get_by_role("button", name="Continue Shopping")

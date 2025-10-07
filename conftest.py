@@ -2,7 +2,7 @@ import pytest
 from playwright.sync_api import Playwright
 
 from DataDrivenFramework.Utils import config
-from DataDrivenFramework.pages.Dahboard import Dashboard
+from DataDrivenFramework.pages.Dahboard import TestDashboard
 
 
 @pytest.fixture(scope="session")
@@ -44,7 +44,7 @@ def cart_ready_page(logged_in_context):
 
     # go to dashboard
     page.goto("https://rahulshettyacademy.com/client/#/dashboard/dash")
-    dash = Dashboard(page)
+    dash = TestDashboard(page)
 
     # add item to cart
     count=dash.addCart()

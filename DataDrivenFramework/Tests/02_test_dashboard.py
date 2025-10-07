@@ -1,5 +1,5 @@
-from DataDrivenFramework.pages.Login import LoginPage
-from DataDrivenFramework.pages.Dahboard import Dashboard
+from DataDrivenFramework.pages.Login import TestLoginPage
+from DataDrivenFramework.pages.Dahboard import TestDashboard
 
 
 
@@ -11,7 +11,7 @@ def test_dashboard(logged_in_context): # using fixture from conftest for login i
     assert "https://rahulshettyacademy.com/client/#/dashboard/dash" in page.url
 
 
-    obj_dash=Dashboard(page)
+    obj_dash=TestDashboard(page)
     product_count=obj_dash.get_product_count() # get product count method is called from dashboard page class
     assert product_count > 0
     print("card count is :", product_count)

@@ -1,9 +1,9 @@
 import pytest
 from ..Utils.config import load_credentials
 
-from DataDrivenFramework.pages.Login import LoginPage
-from ..pages.Dahboard import Dashboard
-from ..pages.OrderHistory import OrderHistory
+from DataDrivenFramework.pages.Login import TestLoginPage
+from ..pages.Dahboard import TestDashboard
+from ..pages.OrderHistory import TestOrderHistory
 
 # Load all credentials
 creds_data = load_credentials() # calling method load_credentials which is in config file
@@ -15,7 +15,7 @@ def test_validateLogin(page, user_type):
     psw=list['password']
 
     page.goto("https://rahulshettyacademy.com/client/#/auth/login")
-    login_page = LoginPage(page)
+    login_page = TestLoginPage(page)
     login_page.login(email, psw)
 
 

@@ -1,12 +1,12 @@
 import pytest
 
-from DataDrivenFramework.pages.Cart import Cart
-from DataDrivenFramework.pages.Checkout import Checkout
+from DataDrivenFramework.pages.Cart import TestCart
+from DataDrivenFramework.pages.Checkout import TestCheckout
 from ..Utils.config import load_credentials
 
-from DataDrivenFramework.pages.Login import LoginPage
-from ..pages.Dahboard import Dashboard
-from ..pages.OrderHistory import OrderHistory
+from DataDrivenFramework.pages.Login import TestLoginPage
+from ..pages.Dahboard import TestDashboard
+from ..pages.OrderHistory import TestOrderHistory
 
 # Load all credentials
 creds_data = load_credentials() # calling method load_credentials which is in config file
@@ -18,7 +18,7 @@ def test_validateLogin(page, user_type):
     psw=list['password']
 
     page.goto("https://rahulshettyacademy.com/client/#/auth/login")
-    login_page = LoginPage(page)
+    login_page = TestLoginPage(page)
     login_page.login(email, psw)
 
 
@@ -28,7 +28,7 @@ def test_validateLogin(page, user_type):
 
 # validating product count-card count
 
-        dash_obj = Dashboard(page)
+        dash_obj = TestDashboard(page)
         product_count = dash_obj.get_product_count()
         assert product_count > 0
         print("card count is :", product_count)
@@ -42,18 +42,18 @@ def test_validateLogin(page, user_type):
 
 #clicking on checkout
 
-        obj_cart=Cart(page)
+        obj_cart=TestCart(page)
         obj_cart.clickingOnCheckout()
 
 
  #purchasing an item
-        checkout_obj=Checkout(page)
+        checkout_obj=TestCheckout(page)
         text=checkout_obj.itemPurchase()
         assert text =="Order Placed Successfully"
         print(text)
 
         # clicking on Orders tab and getting 1st row
-        history_obj = OrderHistory(page)
+        history_obj = TestOrderHistory(page)
         first_row=history_obj.getFirstRow()
         print("First row values:", first_row)
 

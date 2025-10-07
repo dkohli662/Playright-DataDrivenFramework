@@ -2,11 +2,11 @@ import re
 
 from playwright.sync_api import Page
 
-from DataDrivenFramework.pages.Base import BasePage
+from DataDrivenFramework.pages.Base import TestBasePage
 from practice.exception import add_to_cart
 
 
-class Dashboard(BasePage):
+class TestDashboard(TestBasePage):
 
     def __init__(self, page):
 
